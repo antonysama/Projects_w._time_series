@@ -1,4 +1,5 @@
-# Three projects
-## 1 covid (two files)
-## 2 fisheries (three files)
-## 3 opiods (four files)
+# Four projects
+## 1 covid (2 files)
+## 2 fisheries (3 files)
+## 3 opiods (4 files)
+## 4 manufacturing (2 files)
