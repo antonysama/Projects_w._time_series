@@ -1,5 +1,6 @@
-# Four projects
-## 1 covid (2 files)
-## 2 fisheries (3 files)
-## 3 opiods (4 files)
-## 4 manufacturing (2 files)
+## 1 Covid (2 files)
+## 2 BC fisheries (3 files)
+## 3 BC opiods (4 files)
+## 4 Manufacturing (2 files)
+## 5 BC climate change (ceei) (3 files)
+## 6 Learning to pivot (2 files)
