@@ -1,9 +1,16 @@
 #to find difference & pct difference from base or budget
+
+#colab only
+%reload_ext rpy2.ipython
+import os
+os.chdir('/content/drive/My Drive/TBF') # place Scenarios.xlsx here
+
+#packages
 install.packages("dplyr","tidyr", "ggplot2","lubridate", "mice","readxl")
 x<-c("tidyr", "dplyr", "ggplot2", "plotly","lubridate","zoo", "mice", "readxl") 
 lapply(x, require, character.only = TRUE)
 
-library(readxl)
+#readxl
 df <- read_excel("Scenarios.xlsx", 
         col_types = c("text", "text", "numeric", "numeric", "numeric", "numeric", "numeric"))
 
@@ -38,16 +45,9 @@ dates<- dates%>%  mutate(Year=lubridate::year(dates$date))
 #padding df2 with dates
 df4 = merge(df3, dates, by = "Year", all.y = T)
 
-#pivot longer & interpolate
+#pivot longer,interpolate & plot
 df5<- df4 %>% select(-c(2,12))%>% pivot_longer(cols =-c(Year), names_to = "Product", values_to = "value") 
 mymice <- mice(df5, m=1, method = "cart") 
 complete(mymice) %>% 
   ggplot(., aes(x=as.numeric(Year), y=value)) + geom_line(aes(colour=Product))
 
-
-#ggplot
-complete(mymice) %>% ggplot(., aes(x=as.numeric(Year), y=value)) + geom_line(aes(colour=Product))
-
-#plotly
-df5 %>% plot_ly(., x = ~as.numeric(Year), y = ~value, color = ~Product, hoverinfo = ~Product,
-        type = 'scatter', mode = 'lines',     mode = 'markers')
