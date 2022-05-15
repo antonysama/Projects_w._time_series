@@ -1,6 +1,6 @@
 #to find difference & pct difference from base or budget
-install.packages("dplyr","tidyr", "ggplot2","lubridate", "mice")
-x<-c("tidyr", "dplyr", "ggplot2", "plotly","lubridate","zoo", "mice") 
+install.packages("dplyr","tidyr", "ggplot2","lubridate", "mice","readxl")
+x<-c("tidyr", "dplyr", "ggplot2", "plotly","lubridate","zoo", "mice", "readxl") 
 lapply(x, require, character.only = TRUE)
 
 library(readxl)
